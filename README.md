@@ -6,27 +6,26 @@ Hey, Polyglots! Ready for another programming language?
 
 ## Prerequisites
 
--   [Ruby-vs-JS](https://github.com/ga-wdi-boston/ruby-vs-js)
--   [Ruby-vs-JS-Arrays](https://github.com/ga-wdi-boston/ruby-vs-js-arrays)
--   [Ruby-vs-JS-Hash-Dictionary](https://github.com/ga-wdi-boston/ruby-vs-js-hash-dictionary)
+Developers would greatly benefit from being able to accomplish the following in at least one other higher language:
+-   Iterate through an array of elements
+-   Declare, define, and evaluate variables
+-   Understand the concepts of Object-Oriented-Programming
+-   Demonstrate the ability to use conditional expressions to execute code based on given conditions
+-   Write functions that receive parameters and return data
 
 ## Objectives
 
 By the end of this, students should be able to:
 
--   Contrast Python REPL with Ruby REPL.
--   Contrast basic language features and types from Python with basic language
-    features and types from Ruby.
+-   Contrast Python REPL with the JS REPL node.
+-   Contrast basic language features and types from Python with basic language features and types from Javascript.
 -   Write a simple script in Python.
 
 ## Preparation
 
-1.  [Fork and clone](https://github.com/ga-wdi-boston/meta/wiki/ForkAndClone)
-    this repository.
+1.  Fork and clone this repository.
 
 ## Installation
-
-### OS X
 
 1.  `brew install pyenv`
 1.  Open `~/.bashrc` and add the following between Rbenv and Git configs:
@@ -40,7 +39,7 @@ By the end of this, students should be able to:
 1.  `pyenv install 3.5.1`
 1.  `pyenv global 3.5.1`
 1.  Python doesn't ship with the most up to date version of package manager
-pip, so upgrade pip : `pip install -upgrade pip`
+pip, so upgrade pip : `pip install --upgrade pip`
 1.  `brew install pyenv-virtualenv`
 1.  Add the following to `~/.bashrc` under your additions from step 2:
 
@@ -48,52 +47,37 @@ pip, so upgrade pip : `pip install -upgrade pip`
     eval "$(pyenv virtualenv-init -)"
     ```
 
-### Linux
-
-1.  `curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash`
-1.  Python doesn't ship with the most up to date version of package manager
-pip, so upgrade pip : `pip install -upgrade pip`
-1.  Open `~/.bashrc` and add the following between Rbenv and Git configs:
-
-  ```bash
-  # Pyenv
-  export PATH="/root/.pyenv/bin:$PATH"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-  ```
-
 ### Atom Linter
 
 We'll be using [linter-pylint](https://atom.io/packages/linter-pylint).
 
+`pip install pylint`
 `apm install linter-pylint`
 
 ## Python REPL
 
 We'll be using Python's built-in REPL to practice what we learn today.
 
-Typing `python` onto the command line will bring you into this REPL, similar to
-using `pry` or `node`.
+Typing `python3` onto the command line will bring you into this REPL using Python version 3.5.1, similar to calling `node` to run the `node` REPL.
 
 To run Python scripts, simply run
-`python <filename.rb>` from the command line.
+`python3 <filename.rb>` from the command line. To run Python in version 2.7.0 or the original Python version install on your machine, simply call `python` without the extra 3.
 
-_Hint: to print to the console in Python, we use `print <string to print>`_
+_Hint: to print to the console in Python, we use `print(<string to print>)`_
 
-Let's practice this. Take a minute to look at [lib/fizzbuzz.rb](lib/fizzbuzz.rb),
+Let's practice this. Take a minute to look at [lib/fizzbuzz.py](lib/fizzbuzz.py),
 then run the `fizzbuzz` script from the command line using
-`python lib/fizzbuzz.rb`.
+`python lib/fizzbuzz.py`.
 
 ## Core Syntax, Variables, and Operators
 
 ### Syntax
 
-Snake case lives on! Aka, `keep_your_variables_defined_this_way`.
+The default variable syntax uses snake case; as in `keep_your_variables_defined_this_way` and `we_are_in_pythons_house_now`.
 
-**Parens** `()` in Python are required around parameters as opposed to optional
- in Ruby.
+**Parens** `()` in Python are required around parameters.
 
-Similar to Ruby, there is a lack of semicolons in Python. Line breaks in your
+There is a lack of semicolons in Python. Line breaks in your
 code are enough to denote the end of an expression.
 
 However, as you may have noticed from our `fizzbuzz` script, we are introduced
@@ -101,21 +85,19 @@ to **colons** `:` throughout our code. Colons always come directly after the
 first line of the block statement. Colons are also immediately followed by a
 new, indented line (this indentation is purposeful **whitespace**).
 
-Python's colons/whitespace combo act similarly to Ruby's `end` for method
+Python's colons/whitespace combo act as an 'end' for method
 declarations and loops.
 
-While whitespace in Ruby is essentially ignored, in Python, it is critical to
+In Python, it is critical to consider whitespace usage when
 ensuring working code. Otherwise, you'll run into an `IndentationError`.
 
 ### Variable Declaration
 
-Variable declaration in Python is extremely similar to Ruby's. Variables can be
- defined without being previously declared. Variable reassignment is also as
- flexible as Ruby's.
+Variables can be defined without being previously declared. Variable reassignment is also very flexible.
 
 ```python
 >>> x = 2 # assigns x to numerical value 2
->>> x = "WDI is top tier" # reassigns x to string value
+>>> x = "This is Dane." # reassigns x to string value
 ```
 
 Also similar to Ruby, variables in Python _cannot_ be called or stated without
@@ -135,7 +117,7 @@ The falsy values of Python are:
 
 `False` `None` `0` `0.0` `''` `[]` `{}`
 
-`None` is equivalent to Ruby's `nil`.
+`None` is equivalent to Javscripts's `null`.
 
 ### Operators
 
@@ -147,8 +129,7 @@ The falsy values of Python are:
 
 #### Brief Aside: Double Slash (`//`) Operator
 
-If you remember from Ruby, integer division will always return a whole integer.
-For best results, division with Floats returns most accurate results.
+Integer division will always return a whole integer.  Division with Floats returns most accurate results.
 
 In Python, this whole integer division behavior can be mirrored with the `//`
 operator.
@@ -181,18 +162,18 @@ In Python, there is no difference between using `" "` or `' '`.
 are evaluated in both.
 
 ```python
->>> print "This is a \n new line."
+>>> print("This is a \n new line.")
 # => This is a
 # => new line.
 
->>> print 'This is a \n new line.'
+>>> print('This is a \n new line.')
 # => This is a
 # => new line.
 ```
 
 ### String Interpolation
 
-Like Ruby, there are many options for string interpolation in Python. For our
+There are many options for string interpolation in Python. For our
 purposes, we'll be using `.format()`, as it is preferred for Python 3.5.
 
 `.format()` is appended to a string and takes a parameters the strings to be
@@ -202,15 +183,15 @@ be mapped to the parameter passed to `.format()` at said index.
 
 ```python
 
->>> awkward_nerd = "Lauren"
->>> awesome_nerd = "Jason"
->>> occupation = "consultant"
+>>> awkward_nerd = "Justin"
+>>> awesome_nerd = "Wes"
+>>> occupation = "instructor"
 
 >>> "{} is a pretty cool {}.".format(awkward_nerd, occupation)
-# => "Lauren is a pretty cool consultant."
+# => "Justin is a pretty cool instructor."
 
 >>> "{0} is a {1}. {2} is a {1} as well.".format(awkward_nerd, occupation, awesome_nerd)
-# => "Lauren is a consultant. Jason is a consultant as well."
+# => "Justin is an instructor. Wes is an instructor as well."
 ```
 
 ## Flow Control
@@ -218,21 +199,20 @@ be mapped to the parameter passed to `.format()` at said index.
 ### Conditionals
 
 Again, colons and whitespace are critical to working Python code. Aside from
-that and the use of `elif` vs. `elsif`, these should feel very similar to Ruby
-conditional statements.
+that and the use of `elif` vs. `else if`, these should feel very similar to Javascript conditional statements.
 
 ```python
 if x < 0:
-  print 'Negative'
+  print('Negative')
 elif x == 0:
-  print 'Zero'
+  print('Zero')
 else:
-  print 'Positive'
+  print('Positive')
 ```
 
 ### Loops
 
-Also like Ruby, Python employs `while` and `for` loops.
+Also like Javascript, Python employs `while` and `for` loops.
 
 Python also allows for an optional `else` statement with each of these. With
 `while` loops, the `else` statement is executed once the `while` condition is
@@ -242,18 +222,18 @@ completion.
 ```python
 count = 0
 while count < 5:
-   print count, " is  less than 5"
+   print(count, " is  less than 5")
    count = count + 1
 else:
-   print count, " is not less than 5"
+   print(count, " is not less than 5")
 ```
 
 ```python
 count = 15
 for i in range(1,count):
-  print i
+  print(i)
 else:
-  print "done"
+  print("done")
 ```
 
 Again, this `else` is optional and different in nature from a conditional else.
@@ -296,9 +276,9 @@ a list with the appropriate number of numbers to operate on. The function
 mapped to the appropriate operation should take the expected numbers by index
 from the list passed in and return back to you the result of the operation.
 
-We haven't discussed lists yet, but they are very similar to Ruby arrays. The
+We haven't discussed lists yet, but they are very similar to Javascript arrays. The
 syntax required for this is very similar to how you would approach this in
-Ruby. Lean on the knowledge you gained from the [Python vs Ruby study](https://github.com/ga-wdi-boston/python-vs-ruby-study/)!
+Javascript.
 
 Remember, to run a Python script from the command line:
 
@@ -367,7 +347,7 @@ b = ["second", "third"]
 all_wdi_langs = ["JS", "Ruby", "SQL", "Python"]
 
 for lang in all_wdi_langs:
-  print lang
+  print(lang)
 ```
 
 ### Dictionaries
@@ -406,8 +386,7 @@ new_dict["fun_key"]    # => "fresh"
 new_dict.get("fun_key") # => "fresh"
 ```
 
-Dictionary defaults are a little different from Ruby. If it is unknown that a
-key you are retrieving exists, you can call `.get()` with a default value
+Dictionary defaults are a little different from object literals in Javascript. If it is unknown that a key you are retrieving exists, you can call `.get()` with a default value
 should it not exist.
 
 ```python
