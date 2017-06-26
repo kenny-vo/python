@@ -1,13 +1,25 @@
 def fizzbuzz(max_num):
+    FizzBuzz = []
+    Fizz = []
+    Buzz = []
+    Neither = []
+
+
     """Loops through 1-max_num and prints message depending on evaluation of integer."""
     for num in range(1, max_num):
+        fizz_buzz_dict = {}
         if num % 3 == 0 and num % 5 == 0:
-            print('FizzBuzz')
+            FizzBuzz.append(num)
+            print(FizzBuzz)
         elif num % 3 == 0:
-            print('Fizz')
+            Fizz.append(num)
+            print(Fizz)
         elif num % 5 == 0:
-            print('Buzz')
+            Buzz.append(num)
+            print(Buzz)
         else:
-            print(num)
+            Neither.append(num)
+            print(Neither)
+    return fizz_buzz_dict
 
-fizzbuzz(20)
+fizzbuzz(21)
